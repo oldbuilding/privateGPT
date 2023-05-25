@@ -12,3 +12,5 @@ pandoc==2.3
 pypandoc==1.11
 tqdm==4.65.0
 jq==1.4.1
+keras==2.13.1rc0
+keras-nlp==0.5.2

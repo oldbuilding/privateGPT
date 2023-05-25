@@ -49,7 +49,7 @@ def main():
                 n_ctx=model_n_ctx,
                 backend="gptj",
                 callbacks=callbacks,
-                verbose=False,
+                verbose=True,
             )
         case _default:
             print(f"Model {model_type} not supported!")

@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 from langchain.document_loaders import (
     CSVLoader,
-    EverNoteLoader,
     PDFMinerLoader,
     TextLoader,
     UnstructuredEmailLoader,
@@ -32,7 +31,6 @@ LOADER_MAPPING = {
     ".csv": (CSVLoader, {}),
     # ".docx": (Docx2txtLoader, {}),
     ".docx": (UnstructuredWordDocumentLoader, {}),
-    ".enex": (EverNoteLoader, {}),
     ".eml": (UnstructuredEmailLoader, {}),
     ".epub": (UnstructuredEPubLoader, {}),
     ".html": (UnstructuredHTMLLoader, {}),
@@ -49,7 +47,7 @@ load_dotenv()
 
 
 def load_single_document(file_path: str) -> Document:
-    ext = "." + file_path.rsplit(".", 1)[-1]
+    ext = "." + file_path.rsplit(".", 1)[1]
     if ext in LOADER_MAPPING:
         loader_class, loader_args = LOADER_MAPPING[ext]
         loader = loader_class(file_path, **loader_args)
